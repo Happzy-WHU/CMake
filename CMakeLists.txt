@@ -6,7 +6,7 @@ set(SOURCES
 )
  
 set(HEADERS
-    main.h
+    # main.h
 )
  
 add_executable(CmakePro
@@ -14,12 +14,11 @@ add_executable(CmakePro
     ${HEADERS}
 )
 
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-
-set(OpenCV_DIR "E:/opencv/OpenCV-MinGW-Build-OpenCV-4.5.5-x64/x64/mingw/lib")
+set(OpenCV_DIR "E:/opencv/OpenCV-MinGW-Build-OpenCV-3.4.8-x64/x64/mingw/lib")
 find_package(OpenCV REQUIRED)
 if(OpenCV_FOUND)
     target_include_directories(CmakePro PUBLIC ${OpenCV_INCLUDE_DIRS})
+    link_directories(${OpenCV_LIBRARY_DIRS})
     target_link_libraries(CmakePro ${OpenCV_LIBS})
  
 endif()
